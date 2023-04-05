@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <h1>Welcome to Rock-Paper-Scissors</h1>
+  <script>
+
+    //Player is prompted to pick either rock, paper or scissors.
+
+    let playerSelection = window.prompt("Enter your guess, Rock, Paper, or Scissors?").toLowerCase();
+
+
+    //Function that randomly choses rock, paper, or scissors for the computer.
+
+    function getComputerChoice() {
+      const options = ["rock", "paper", "scissors"];
+      const choice = options[Math.floor(Math.random() * options.length)]
+      return choice;
+    }
+
+    let computerSelection = getComputerChoice();
+
+
+
+    //Function that plays one round of the game using if-else statements.
+
+    function playRound(playerSelection, computerSelection) {
+      if (playerSelection === computerSelection) {
+        return "It's a tie!";
+      } else if (playerSelection === "rock" && computerSelection === "scissors" ||
+                 playerSelection === "paper" && computerSelection === "rock" ||
+                 playerSelection === "scissors" && computerSelection === "paper") {
+        return "You win!";
+    } else {
+      return "Computer wins!";
+    }
+  }  
+
+  playRound(playerSelection, computerSelection);
+
+  //Next step is below, but haven't gotten that far yet due to issues with playRound()
+
+    function game() {
+      for (let i = 0; i < 5; i++) {
+        let playerSelection = window.prompt("Enter your guess, Rock, Paper, or Scissors?").toLowerCase();
+        console.log(playRound(playerSelection, computerSelection));
+      }
+    }
+
+    game();
+
+  </script>
+</body>
+</html>
